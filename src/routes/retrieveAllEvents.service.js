@@ -22,6 +22,8 @@ module.exports = async (req, res) => {
                     time: event.time,
                     maxSeats: event.maxSeats,
                     bookedSeats: event.bookedSeats,
+                    maxWaitlist: event.maxWaitlist,
+                    currentWaitlist: event.currentWaitlist,
                     location: event.location,
                     organizer: event.organizer,
                     attendees: event.attendees,
@@ -29,14 +31,14 @@ module.exports = async (req, res) => {
                     tags: event.tags,
                     createdAt: event.createdAt,
                     updatedAt: event.updatedAt,
-                };
-            }
+                }
+            }),
             info: {
                 code: errors['000'].code,
                 message: errors['000'].message,
                 displayText: errors['000'].displayText,
-            },
-        });
+            }
+        })
     } catch (error) {
         return res.status(500).json({
             statusCode: 1,

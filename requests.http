@@ -1,0 +1,5 @@
+GET http://localhost:6003/api/v1/events
+
+### Get all events Deployed
+
+GET https://pxo7nhxfyh.execute-api.us-east-2.amazonaws.com/api/v1/events

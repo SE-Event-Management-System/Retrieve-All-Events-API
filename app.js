@@ -7,6 +7,9 @@ const {v4} = require('uuid')
 const routeVersioning = require('./src/index');
 const errors = require('./errors/errors');
 const { default: mongoose } = require('mongoose');
+const compression = require('compression');
+app.use(compression());
+
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use((req, res, next) => {

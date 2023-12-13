@@ -5,6 +5,12 @@ module.exports = {
         displayText: 'Retrieved all events successfully',
         errorType: ''
     },
+    '002': {
+        code: '002',
+        message: "Couldn't fetch events",
+        displayText: "Couldn't fetch events",
+        errorType: 'T'
+    },
     '004': {
         code: '004',
         message: 'Bad request',

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 require('./booking')
 
-const eventSchema = new mongoose.Schema({
+const venueSchema = new mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
   title: {
     type: String,
@@ -15,36 +15,19 @@ const eventSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
-  datetime: {
-    type: Date,
-    required: true,
+  openTime: {
+    startTime: { type: Number, required: true },
+    endTime: { type: Number, required: true },
   },
-  maxSeats: {
-    type: Number,
-    required: true,
-  },
-  bookedSeatsArray: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Booking',
-    },
-  ],
-  maxWaitlist: {
-    type: Number,
-    required: true,
-  },
-  waitlistArray: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Booking',
-    },
-  ],
+  bookedTime: [{
+    startTime: { type: Date, required: true },
+    endTime: { type: Date, required: true },
+    booking: { type: mongoose.Schema.Types.ObjectId, ref: 'Booking' },
+  }],
   location: {
     type: String,
     required: true,
   },
-  lat: Number,
-  long: Number,
   address: {
     type: String,
     required: true,
@@ -57,10 +40,6 @@ const eventSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  createdBy: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User'
-  },
   tags: [
     {
       type: String,
@@ -72,6 +51,6 @@ const eventSchema = new mongoose.Schema({
 });
 
 // Create the Event model
-const Event = mongoose.model('Event', eventSchema);
+const Venue = mongoose.model('Venue', venueSchema);
 
-module.exports = Event;
+module.exports = Venue;

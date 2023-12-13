@@ -15,7 +15,7 @@ const eventSchema = new mongoose.Schema({
     type: Buffer,
     required: false,
   },
-  date: {
+  datetime: {
     type: Date,
     required: true,
   },
@@ -35,7 +35,7 @@ const eventSchema = new mongoose.Schema({
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'user',
-    },
+    }],
   price: {
     type: Number,
     required: true,
